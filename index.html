@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="KINESIS — Next-Generation Autonomous Intelligence & Spatial Workflow Engine. Deploy self-healing cognitive agent swarms on a globally distributed neural fabric.">
+  <meta name="theme-color" content="#06080d">
+  
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="KINESIS — Autonomous Cognitive Intelligence Infrastructure">
+  <meta property="og:description" content="Sub-millisecond multi-agent orchestration, infinite episodic memory, and deterministic multimodal pipelines.">
+  
+  <title>KINESIS — Autonomous Intelligence & Cognitive Swarm Engine</title>
+  
+  <!-- Favicon SVG -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><polygon points=%2250,5 95,25 95,75 50,95 5,75 5,25%22 fill=%22none%22 stroke=%22%236366f1%22 stroke-width=%228%22/><circle cx=%2250%22 cy=%2250%22 r=%2216%22 fill=%22%2306b6d4%22/></svg>">
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Ambient Dynamic Canvas & Glow Backdrops -->
+  <canvas id="particle-canvas"></canvas>
+  <div class="ambient-layer">
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+    <div class="ambient-glow glow-3"></div>
+  </div>
+  <div class="bg-grid-overlay"></div>
+
+  <!-- ===================================================================
+       NAVIGATION
+       =================================================================== -->
+  <header class="header-nav" id="main-nav">
+    <div class="container nav-inner">
+      <!-- Logo -->
+      <a href="#" class="brand-logo" aria-label="KINESIS Homepage">
+        <div class="logo-symbol">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+        </div>
+        <span>KINESIS</span>
+        <span class="logo-tag">v3.4 CORE</span>
+      </a>
+
+      <!-- Center Links -->
+      <nav class="nav-links" aria-label="Main Navigation">
+        <a href="#paradigm" class="nav-link">Architecture</a>
+        <a href="#features" class="nav-link">Engine</a>
+        <a href="#simulator" class="nav-link">Live Studio</a>
+        <a href="#calculator" class="nav-link">Benchmarks</a>
+        <a href="#showcase" class="nav-link">Ecosystem</a>
+        <a href="#pricing" class="nav-link">Pricing</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+      </nav>
+
+      <!-- Right Actions -->
+      <div class="nav-actions">
+        <!-- Live Status Beacon -->
+        <div class="status-pill" title="Global Edge Cluster Status: 100% Operational">
+          <span class="live-beacon"></span>
+          <span>160 PoPs Optimal</span>
+        </div>
+
+        <!-- Ambient Sound FX Toggle -->
+        <button id="sound-toggle-btn" class="icon-button" aria-label="Toggle Sound Effects" title="Sound FX: Muted">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <line x1="23" y1="9" x2="17" y2="15"></line>
+            <line x1="17" y1="9" x2="23" y2="15"></line>
+          </svg>
+        </button>
+
+        <!-- Command Palette Trigger -->
+        <button id="cmd-palette-btn" class="icon-button" aria-label="Open Command Palette" title="Command Palette (Ctrl + K)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+
+        <!-- Primary CTA -->
+        <button class="btn btn-primary btn-sm open-modal-btn" id="nav-cta-btn">
+          <span>Launch Studio</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </button>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="drawer-backdrop" id="drawer-backdrop"></div>
+  <aside class="mobile-drawer" id="mobile-drawer" aria-label="Mobile Navigation">
+    <div>
+      <div class="drawer-header">
+        <div class="brand-logo">
+          <div class="logo-symbol">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+          </div>
+          <span>KINESIS</span>
+        </div>
+        <button id="drawer-close-btn" class="icon-button" aria-label="Close Mobile Menu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <nav class="drawer-links">
+        <a href="#paradigm" class="drawer-link">Architecture <span>→</span></a>
+        <a href="#features" class="drawer-link">Engine Capabilities <span>→</span></a>
+        <a href="#simulator" class="drawer-link">Live Studio Sandbox <span>→</span></a>
+        <a href="#calculator" class="drawer-link">ROI & Compute Benchmarks <span>→</span></a>
+        <a href="#showcase" class="drawer-link">Ecosystem & Case Studies <span>→</span></a>
+        <a href="#pricing" class="drawer-link">Transparent Pricing <span>→</span></a>
+        <a href="#faq" class="drawer-link">Technical FAQ <span>→</span></a>
+      </nav>
+    </div>
+
+    <div class="drawer-actions">
+      <button class="btn btn-primary btn-lg open-modal-btn" style="width: 100%;">
+        <span>Deploy Agent Swarm</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </button>
+      <div class="status-pill" style="justify-content: center; width: 100%;">
+        <span class="live-beacon"></span>
+        <span>160 Global Edge PoPs Operational</span>
+      </div>
+    </div>
+  </aside>
+
+  <main>
+    <!-- ===================================================================
+         HERO SECTION
+         =================================================================== -->
+    <section class="hero-section" id="hero">
+      <div class="container">
+        <div class="hero-content">
+          <!-- Announcement Pill -->
+          <div class="hero-announcement open-modal-btn">
+            <span class="announcement-badge">Quantum-5</span>
+            <span>Sub-12ms Multi-Agent Cognitive Orchestration</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </div>
+
+          <!-- Main Headline -->
+          <h1 class="hero-title">
+            Next-Gen Autonomous Intelligence, <br>
+            <span class="text-shimmer">Orchestrated at Light Speed.</span>
+          </h1>
+
+          <!-- Supporting Description -->
+          <p class="hero-subtitle">
+            Deploy self-healing cognitive agent swarms, sub-millisecond episodic vector memory, 
+            and deterministic multimodal pipelines across a globally distributed neural mesh.
+          </p>
+
+          <!-- Hero CTA Row -->
+          <div class="hero-cta-group">
+            <button class="btn btn-primary btn-lg open-modal-btn" id="hero-primary-cta">
+              <span>Deploy Agent Swarm</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+
+            <a href="#simulator" class="btn btn-secondary btn-lg" id="hero-secondary-cta">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+              <span>Explore Interactive Studio</span>
+            </a>
+
+            <!-- Quick Install Box -->
+            <div class="hero-install-box" title="Click to copy install command">
+              <span class="install-cmd">$ npm i @kinesis/core</span>
+              <button class="copy-btn" id="copy-cmd-btn" aria-label="Copy Command">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Trust Badges Bar -->
+          <div class="hero-trust-bar">
+            <span class="trust-label">Powering mission-critical autonomous systems at scale</span>
+            <div class="trust-logos">
+              <div class="trust-logo-item">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon></svg>
+                <span>ANTHRON</span>
+              </div>
+              <div class="trust-logo-item">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polygon points="12 8 8 12 12 16 16 12 12 8"></polygon></svg>
+                <span>HYPERION</span>
+              </div>
+              <div class="trust-logo-item">
+                <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4"></rect><circle cx="12" cy="12" r="3"></circle></svg>
+                <span>VELOCE AI</span>
+              </div>
+              <div class="trust-logo-item">
+                <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+                <span>QUANTIX LABS</span>
+              </div>
+              <div class="trust-logo-item">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                <span>NOVACORE</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual Cockpit / Interactive Engine Preview -->
+        <div class="hero-cockpit reveal-on-scroll">
+          <div class="cockpit-inner">
+            <!-- Window Header -->
+            <div class="cockpit-header">
+              <div class="window-dots">
+                <span class="dot-red"></span>
+                <span class="dot-yellow"></span>
+                <span class="dot-green"></span>
+              </div>
+              <div class="cockpit-status-bar">
+                <span>Cluster: <b>kinesis-global-alpha</b></span>
+                <span>Topology: <b>Hypercube-P2P</b></span>
+                <span>Telemetry: <b>Deterministic 60 FPS</b></span>
+              </div>
+              <div class="status-pill">
+                <span class="live-beacon"></span>
+                <span>Active Swarm</span>
+              </div>
+            </div>
+
+            <!-- Visual Area -->
+            <div class="cockpit-visual-area">
+              <img src="assets/neural_core.jpg" alt="Kinesis Neural Core Quantum Visualization" class="cockpit-img">
+
+              <!-- Floating HUD Widgets -->
+              <div class="hud-widget hud-top-left">
+                <div class="hud-stat-label">SYNAPSE THROUGHPUT</div>
+                <div class="hud-stat-value" id="hud-throughput">
+                  142,800 tps
+                  <span class="hud-stat-delta">+18.4%</span>
+                </div>
+              </div>
+
+              <div class="hud-widget hud-bottom-right">
+                <div class="hud-stat-label">CONSENSUS LATENCY</div>
+                <div class="hud-stat-value" id="hud-latency">
+                  8.4ms
+                  <span class="hud-stat-delta">-92%</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cockpit Interactive Runner Bar -->
+            <div class="cockpit-interactive-runner">
+              <div class="runner-presets">
+                <span style="font-size:0.8rem; font-family:var(--font-mono); color:var(--text-muted); text-transform:uppercase;">Preset:</span>
+                <button class="preset-chip active" data-preset="swarm">Swarm Synthesis</button>
+                <button class="preset-chip" data-preset="arbitrage">Financial Arbitrage</button>
+                <button class="preset-chip" data-preset="kinematics">Robotic Kinematics</button>
+              </div>
+
+              <div class="runner-action-wrap">
+                <div class="runner-output-stream" id="sim-output-stream">
+                  <span class="live-beacon"></span>
+                  <span>Synthesizing 1,024 distributed actor nodes... Consensus verified.</span>
+                </div>
+
+                <button class="btn btn-glow-cyan btn-sm" id="run-sim-btn">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                  </svg>
+                  <span>Run Simulation</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SECTION: PARADIGM SHIFT (ABOUT / ARCHITECTURE COMPARISON)
+         =================================================================== */ -->
+    <section class="section-wrapper" id="paradigm">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <div class="section-badge">
+            <span class="badge-dot"></span>
+            <span>Architectural Paradigm</span>
+          </div>
+          <h2 class="section-title">
+            The Evolution of AI Systems: <br>
+            <span class="gradient-text">From Monoliths to Swarms</span>
+          </h2>
+          <p class="section-desc">
+            Traditional AI infrastructure suffers from catastrophic token latency, memory drift, and single-point failures. 
+            Kinesis rewrites the stack from the silicon layer up with decentralized actor orchestration.
+          </p>
+        </div>
+
+        <div class="comparison-grid">
+          <!-- Card 1: Monolithic -->
+          <div class="comp-card reveal-on-scroll">
+            <div>
+              <span class="comp-badge legacy">Legacy Architecture</span>
+              <h3 class="comp-title">Centralized Monoliths</h3>
+              <p class="comp-desc">Single massive models processing blocking token streams through synchronous request/reply gateways.</p>
+              <div class="comp-points">
+                <div class="comp-point">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                  <span>300ms–2000ms blocking latency per inference</span>
+                </div>
+                <div class="comp-point">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                  <span>Memory drift and prompt length saturation</span>
+                </div>
+                <div class="comp-point">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                  <span>Single-cloud compute lock-in and opaque pricing</span>
+                </div>
+              </div>
+            </div>
+            <div style="margin-top: 32px; font-family: var(--font-mono); font-size: 0.8rem; color: #f87171;">
+              Status: Deprecated in High-Velocity Systems
+            </div>
+          </div>
+
+          <!-- Card 2: Kinesis Core (Featured) -->
+          <div class="comp-card featured reveal-on-scroll" style="animation-delay: 0.1s;">
+            <div>
+              <span class="comp-badge kinesis">Kinesis Neural Fabric</span>
+              <h3 class="comp-title">Decentralized Swarms</h3>
+              <p class="comp-desc">Asynchronous, micro-specialized neural actors executing in parallel with zero-knowledge Byzantine consensus.</p>
+              <div class="comp-points">
+                <div class="comp-point">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Sub-11.4ms median global P99 dispatch</span>
+                </div>
+                <div class="comp-point">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Infinite episodic vector memory with zero degradation</span>
+                </div>
+                <div class="comp-point">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Deterministic validation: Zero hallucination SLA</span>
+                </div>
+                <div class="comp-point">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Self-healing swarms with automated rollback</span>
+                </div>
+              </div>
+            </div>
+            <div style="margin-top: 32px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-emerald);">
+              ✓ Ready for Mission-Critical Production
+            </div>
+          </div>
+
+          <!-- Card 3: The Frontier -->
+          <div class="comp-card reveal-on-scroll" style="animation-delay: 0.2s;">
+            <div>
+              <span class="comp-badge future">Spatial & Physical</span>
+              <h3 class="comp-title">Autonomous Action</h3>
+              <p class="comp-desc">Direct hardware-enclave execution into physical robotics, trading execution engines, and sovereign clouds.</p>
+              <div class="comp-points">
+                <div class="comp-point">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Hardware SGX/TEE cryptographic proofs</span>
+                </div>
+                <div class="comp-point">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>6-DOF spatial kinematics tensor streaming</span>
+                </div>
+                <div class="comp-point">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Multi-cloud distributed fault isolation</span>
+                </div>
+              </div>
+            </div>
+            <div style="margin-top: 32px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-cyan);">
+              Next Horizon: Continuous Physical Learning
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SECTION: ENGINE FEATURES GRID
+         =================================================================== -->
+    <section class="section-wrapper" id="features">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <div class="section-badge">
+            <span class="badge-dot"></span>
+            <span>Core Capabilities</span>
+          </div>
+          <h2 class="section-title">
+            Engineered for Extreme Velocity. <br>
+            <span class="gradient-text">Architected for Zero Failure.</span>
+          </h2>
+          <p class="section-desc">
+            Explore the six architectural pillars powering Kinesis. Every subsystem is decoupled, 
+            stateless, and secured with cryptographic hardware validation.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <!-- Feature 1 -->
+          <div class="card-spotlight reveal-on-scroll">
+            <div class="card-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+            </div>
+            <h3 class="card-title">Sub-Millisecond Neural Mesh</h3>
+            <p class="card-desc">Distributed peer-to-peer routing between compute clusters. Bypasses standard TCP handshakes with custom UDP tensor datagrams.</p>
+            <div class="card-meta-list">
+              <div class="meta-item"><span>Protocol:</span> <b>QUIC-Tensor v4</b></div>
+              <div class="meta-item"><span>Global P99:</span> <b>&lt; 9.2 ms</b></div>
+            </div>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="card-spotlight reveal-on-scroll" style="animation-delay: 0.05s;">
+            <div class="card-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+            </div>
+            <h3 class="card-title">Infinite Episodic Memory</h3>
+            <p class="card-desc">Hierarchical vector graphs that persist multi-agent dialogues, sensor history, and environmental states without catastrophic forgetting.</p>
+            <div class="card-meta-list">
+              <div class="meta-item"><span>Index:</span> <b>Quantized HNSW+Graph</b></div>
+              <div class="meta-item"><span>Recall Accuracy:</span> <b>99.98%</b></div>
+            </div>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="card-spotlight reveal-on-scroll" style="animation-delay: 0.1s;">
+            <div class="card-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <h3 class="card-title">Byzantine Agent Consensus</h3>
+            <p class="card-desc">Multi-agent voting protocols verify factual accuracy, code syntax, and execution safety before output is committed.</p>
+            <div class="card-meta-list">
+              <div class="meta-item"><span>Consensus:</span> <b>BFT-Quorum</b></div>
+              <div class="meta-item"><span>Hallucination Rate:</span> <b>&lt; 0.001%</b></div>
+            </div>
+          </div>
+
+          <!-- Feature 4 -->
+          <div class="card-spotlight reveal-on-scroll" style="animation-delay: 0.15s;">
+            <div class="card-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            </div>
+            <h3 class="card-title">Multimodal Tensor Fusion</h3>
+            <p class="card-desc">Simultaneously ingest vision, spatial LiDAR, audio, and high-frequency time series data into a unified latent space.</p>
+            <div class="card-meta-list">
+              <div class="meta-item"><span>Throughput:</span> <b>1.24 GB/sec</b></div>
+              <div class="meta-item"><span>Compression:</span> <b>Latent Z-Standard</b></div>
+            </div>
+          </div>
+
+          <!-- Feature 5 -->
+          <div class="card-spotlight reveal-on-scroll" style="animation-delay: 0.2s;">
+            <div class="card-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            </div>
+            <h3 class="card-title">Zero-Trust TEE Enclaves</h3>
+            <p class="card-desc">Hardware-isolated Intel SGX and AMD SEV enclaves guarantee that neither cloud operators nor attackers can read sensitive model weights or tenant data.</p>
+            <div class="card-meta-list">
+              <div class="meta-item"><span>Hardware:</span> <b>Intel SGX / AMD SEV</b></div>
+              <div class="meta-item"><span>Attestation:</span> <b>Cryptographic Remote</b></div>
+            </div>
+          </div>
+
+          <!-- Feature 6 -->
+          <div class="card-spotlight reveal-on-scroll" style="animation-delay: 0.25s;">
+            <div class="card-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path></svg>
+            </div>
+            <h3 class="card-title">Autonomous Self-Healing</h3>
+            <p class="card-desc">When an agent node experiences anomalous output or network partition, the swarm automatically isolates the actor and reroutes workflow state.</p>
+            <div class="card-meta-list">
+              <div class="meta-item"><span>Failover:</span> <b>Sub-15ms Automatic</b></div>
+              <div class="meta-item"><span>State Recovery:</span> <b>ACID-Vector WAL</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SECTION: INTERACTIVE ARCHITECTURE SIMULATOR
+         =================================================================== -->
+    <section class="section-wrapper" id="simulator">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <div class="section-badge">
+            <span class="badge-dot"></span>
+            <span>Interactive Studio Sandbox</span>
+          </div>
+          <h2 class="section-title">
+            Inspect the Execution Pipeline <br>
+            <span class="gradient-text">In Real Time</span>
+          </h2>
+          <p class="section-desc">
+            Click through the pipeline stages below to examine data transformation, 
+            latency profiles, and production SDK syntax at each neural checkpoint.
+          </p>
+        </div>
+
+        <div class="simulator-container reveal-on-scroll">
+          <!-- Step Navigation Tabs -->
+          <div class="sim-nav" role="tablist">
+            <button class="sim-step-btn active" role="tab" aria-selected="true">
+              <span class="step-num">1</span>
+              <span>Multimodal Ingestion</span>
+            </button>
+            <button class="sim-step-btn" role="tab" aria-selected="false">
+              <span class="step-num">2</span>
+              <span>Cognitive Swarm</span>
+            </button>
+            <button class="sim-step-btn" role="tab" aria-selected="false">
+              <span class="step-num">3</span>
+              <span>Episodic Memory</span>
+            </button>
+            <button class="sim-step-btn" role="tab" aria-selected="false">
+              <span class="step-num">4</span>
+              <span>Enclave Action Dispatch</span>
+            </button>
+          </div>
+
+          <!-- Workspace Split -->
+          <div class="sim-workspace">
+            <!-- Left Pane: Technical Context & Live Telemetry -->
+            <div class="sim-pane sim-pane-left">
+              <div>
+                <div class="sim-stage-indicator" id="sim-stage-indicator">STAGE 01 // INGESTION</div>
+                <h3 class="sim-stage-title" id="sim-stage-title">Ultra-Low Latency Multimodal Telemetry Ingestion</h3>
+                <p class="sim-stage-desc" id="sim-stage-desc">
+                  High-throughput binary packet parser ingestion engine. Compresses visual, audio, spatial kinematics, 
+                  and natural language into normalized low-entropy latent tensors.
+                </p>
+              </div>
+
+              <!-- Live Telemetry Metrics -->
+              <div class="sim-metrics-grid">
+                <div class="sim-metric-card">
+                  <div class="sim-metric-label">THROUGHPUT</div>
+                  <div class="sim-metric-val" id="sim-metric-throughput">1.24 GB/sec</div>
+                </div>
+                <div class="sim-metric-card">
+                  <div class="sim-metric-label">TRANSIT LATENCY</div>
+                  <div class="sim-metric-val" id="sim-metric-latency">1.2 ms</div>
+                </div>
+                <div class="sim-metric-card">
+                  <div class="sim-metric-label">MEMORY FOOTPRINT</div>
+                  <div class="sim-metric-val" id="sim-metric-memory">42 MB RAM</div>
+                </div>
+                <div class="sim-metric-card">
+                  <div class="sim-metric-label">SECURITY CONFORMANCE</div>
+                  <div class="sim-metric-val" id="sim-metric-safety">Zero-Copy TEE</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Pane: Code Sandbox Display -->
+            <div class="sim-pane sim-pane-right">
+              <div class="code-header">
+                <div class="window-dots">
+                  <span class="dot-red"></span>
+                  <span class="dot-yellow"></span>
+                  <span class="dot-green"></span>
+                </div>
+                <span class="code-lang-tag">TypeScript • SDK v3.4</span>
+              </div>
+              <pre class="code-block" id="sim-code-display"><span class="code-keyword">import</span> { IngestionPipeline, StreamFormat } <span class="code-keyword">from</span> <span class="code-str">'@kinesis/core'</span>;
+
+<span class="code-comment">// Establish sub-millisecond edge websocket link</span>
+<span class="code-keyword">const</span> pipeline = <span class="code-keyword">new</span> <span class="code-fn">IngestionPipeline</span>({
+  edgePoP: <span class="code-str">'sfo-zone-1'</span>,
+  compression: <span class="code-str">'zstandard-latent'</span>,
+  encryption: <span class="code-str">'xchacha20-poly1305'</span>
+});
+
+<span class="code-keyword">await</span> pipeline.<span class="code-fn">bindMultimodalStream</span>({
+  vision: StreamFormat.H265_RAW,
+  spatial: StreamFormat.QUATERNION_6DOF,
+  audio: StreamFormat.OPUS_SPATIAL
+});</pre>
+            </div>
+          </div>
+
+          <!-- Controls Footer -->
+          <div class="sim-controls-footer">
+            <div style="display:flex; align-items:center; gap:12px;">
+              <span class="status-pill">
+                <span class="live-beacon"></span>
+                <span>Simulator Sandbox Engine Active</span>
+              </span>
+              <span style="font-size:0.85rem; color:var(--text-muted)">Press any stage above to inspect live pipeline hooks</span>
+            </div>
+
+            <button class="btn btn-secondary btn-sm" id="stress-test-toggle">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+              <span>Inject Edge Stress Test</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SECTION: ROI & COMPUTE BENCHMARK CALCULATOR
+         =================================================================== -->
+    <section class="section-wrapper" id="calculator">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <div class="section-badge">
+            <span class="badge-dot"></span>
+            <span>Compute Economics</span>
+          </div>
+          <h2 class="section-title">
+            Interactive Benchmark & <br>
+            <span class="gradient-text">ROI Calculator</span>
+          </h2>
+          <p class="section-desc">
+            Estimate your latency reduction, compute efficiency gains, and cost savings 
+            when switching from legacy monolithic LLMs to Kinesis swarm infrastructure.
+          </p>
+        </div>
+
+        <div class="calc-card reveal-on-scroll">
+          <div class="calc-grid">
+            <!-- Controls -->
+            <div class="calc-controls">
+              <!-- Slider 1 -->
+              <div class="slider-group">
+                <div class="slider-header">
+                  <span class="slider-title">Monthly Inference Cycles</span>
+                  <span class="slider-display-val" id="val-inferences">10M / month</span>
+                </div>
+                <input type="range" class="custom-range" id="range-inferences" min="1" max="100" value="10">
+                <div style="display:flex; justify-content:space-between; font-size:0.75rem; color:var(--text-muted); font-family:var(--font-mono);">
+                  <span>1M (Startup)</span>
+                  <span>50M (Scale-up)</span>
+                  <span>100M+ (Enterprise)</span>
+                </div>
+              </div>
+
+              <!-- Slider 2 -->
+              <div class="slider-group">
+                <div class="slider-header">
+                  <span class="slider-title">Concurrent Autonomous Swarms</span>
+                  <span class="slider-display-val" id="val-swarms">50 Swarms</span>
+                </div>
+                <input type="range" class="custom-range" id="range-swarms" min="5" max="500" value="50">
+                <div style="display:flex; justify-content:space-between; font-size:0.75rem; color:var(--text-muted); font-family:var(--font-mono);">
+                  <span>5 Swarms</span>
+                  <span>250 Swarms</span>
+                  <span>500 Swarms</span>
+                </div>
+              </div>
+
+              <div style="border-top:1px solid var(--border-subtle); padding-top:20px; font-size:0.875rem; color:var(--text-secondary);">
+                💡 <b>Methodology:</b> Based on real-world production telemetry comparing monolithic GPT-4/Claude 3.5 Sonnet request pools against Kinesis quantized multi-agent actors running on distributed edge nodes.
+              </div>
+            </div>
+
+            <!-- Results Display -->
+            <div class="calc-results-panel">
+              <div class="roi-metric-item">
+                <span class="roi-label">PROJECTED MONTHLY SAVINGS</span>
+                <span class="roi-value highlight-green" id="roi-savings">$14,800 /mo</span>
+              </div>
+
+              <div class="roi-metric-item">
+                <span class="roi-label">GLOBAL MEDIAN LATENCY</span>
+                <span class="roi-value highlight-cyan" id="roi-latency">&lt; 11.4 ms</span>
+              </div>
+
+              <div class="roi-metric-item">
+                <span class="roi-label">COMPUTE EFFICIENCY BOOST</span>
+                <span class="roi-value" id="roi-efficiency">+94.6%</span>
+              </div>
+
+              <div class="roi-metric-item">
+                <span class="roi-label">EQUIVALENT COGNITIVE CAPACITY</span>
+                <span class="roi-value" id="roi-tflops" style="font-size:1.6rem; color:var(--accent-violet);">13.2 PFLOPS-eq</span>
+              </div>
+
+              <button class="btn btn-primary open-modal-btn" style="width:100%; margin-top:10px;">
+                <span>Provision Custom Benchmark Cluster</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SECTION: ECOSYSTEM SHOWCASE (DASHBOARD & DOMAINS)
+         =================================================================== -->
+    <section class="section-wrapper" id="showcase">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <div class="section-badge">
+            <span class="badge-dot"></span>
+            <span>Production Deployments</span>
+          </div>
+          <h2 class="section-title">
+            Built for Mission-Critical <br>
+            <span class="gradient-text">Autonomous Workloads</span>
+          </h2>
+          <p class="section-desc">
+            From physical robotics quadrupeds navigating subterranean tunnels to microsecond 
+            financial consensus, Kinesis powers the world's most demanding AI systems.
+          </p>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="showcase-tab-bar reveal-on-scroll">
+          <button class="tab-pill showcase-tab-pill active" data-tab="robotics">Autonomous Robotics</button>
+          <button class="tab-pill showcase-tab-pill" data-tab="finance">Autonomous Finance</button>
+          <button class="tab-pill showcase-tab-pill" data-tab="biotech">Bio-Tech Simulation</button>
+          <button class="tab-pill showcase-tab-pill" data-tab="devtools">Developer Runtime</button>
+        </div>
+
+        <!-- Showcase Display Box -->
+        <div class="showcase-display-box reveal-on-scroll">
+          <!-- Left: Image Preview -->
+          <div class="showcase-img-wrap">
+            <img src="assets/dashboard_interface.jpg" alt="Kinesis Autonomous Control Interface" class="showcase-img">
+          </div>
+
+          <!-- Right: Info Panel -->
+          <div class="showcase-info-wrap">
+            <div class="showcase-info-tag" id="showcase-tag">ENTERPRISE ROBOTICS & EMBODIED AI</div>
+            <h3 class="showcase-info-title" id="showcase-title">Sub-Millisecond Distributed Closed-Loop Kinematics</h3>
+            <p class="showcase-info-desc" id="showcase-desc">
+              Orchestrating warehouse fleets, robotic quadrupeds, and autonomous arms with deterministic micro-second telemetry coordination and verifiable safety boundaries.
+            </p>
+
+            <div class="showcase-feature-bullets" id="showcase-bullets">
+              <div class="feature-bullet">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Real-time SLAM & 3D point cloud streaming over P2P mesh</span>
+              </div>
+              <div class="feature-bullet">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Hardware-enforced virtual safety zones with automatic emergency stop</span>
+              </div>
+              <div class="feature-bullet">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Fleet-wide federated model synchronization with zero network degradation</span>
+              </div>
+            </div>
+
+            <div>
+              <button class="btn btn-secondary open-modal-btn">
+                <span>View Case Study Architecture</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SECTION: KEY METRICS & COUNTERS
+         =================================================================== -->
+    <section class="section-wrapper" id="statistics">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-card reveal-on-scroll">
+            <div class="stat-number stat-counter" data-target="99.999" data-suffix="%" data-decimals="3">0%</div>
+            <div class="stat-label">SLA Uptime Guarantee</div>
+            <div class="stat-subtext">Backed by cryptographic slashing SLA</div>
+          </div>
+
+          <div class="stat-card reveal-on-scroll" style="animation-delay: 0.1s;">
+            <div class="stat-number stat-counter" data-target="11.4" data-prefix="< " data-suffix="ms" data-decimals="1">0ms</div>
+            <div class="stat-label">Median Global P99 Latency</div>
+            <div class="stat-subtext">Measured across 160 edge PoPs</div>
+          </div>
+
+          <div class="stat-card reveal-on-scroll" style="animation-delay: 0.2s;">
+            <div class="stat-number stat-counter" data-target="4.8" data-suffix="B+" data-decimals="1">0B</div>
+            <div class="stat-label">Daily Swarm Inferences</div>
+            <div class="stat-subtext">Zero data loss or token drift</div>
+          </div>
+
+          <div class="stat-card reveal-on-scroll" style="animation-delay: 0.3s;">
+            <div class="stat-number stat-counter" data-target="160" data-suffix="+" data-decimals="0">0</div>
+            <div class="stat-label">Global Edge PoPs</div>
+            <div class="stat-subtext">Across 48 sovereign jurisdictions</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SECTION: TESTIMONIALS / VERIFIED FEEDBACK
+         =================================================================== -->
+    <section class="section-wrapper" id="testimonials">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <div class="section-badge">
+            <span class="badge-dot"></span>
+            <span>Engineering Feedback</span>
+          </div>
+          <h2 class="section-title">
+            Trusted by the Teams Building <br>
+            <span class="gradient-text">The Autonomous Frontier</span>
+          </h2>
+          <p class="section-desc">
+            Read how tier-1 research institutes and autonomous product teams deploy Kinesis in production.
+          </p>
+        </div>
+
+        <div class="testimonial-carousel-wrap reveal-on-scroll">
+          <div class="testimonial-track-container">
+            <!-- Slide 1 -->
+            <div class="testimonial-slide active">
+              <div class="quote-stars">
+                ★★★★★
+              </div>
+              <p class="quote-body">
+                "Kinesis replaced our entire monolithic Claude/OpenAI pipeline with 64 parallel actor agents running in hardware enclaves. Our end-to-end execution latency dropped from 1,200ms to 9.4ms, and our cloud inference bill dropped by 74% in the first quarter."
+              </p>
+              <div class="author-row">
+                <div class="author-info">
+                  <div class="author-avatar">EL</div>
+                  <div>
+                    <div class="author-name">Dr. Elena Rostova</div>
+                    <div class="author-title">VP of Autonomous Systems, Hyperion Robotics</div>
+                  </div>
+                </div>
+                <div class="status-pill">
+                  <span class="live-beacon"></span>
+                  <span>Verified Enterprise Customer</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="testimonial-slide">
+              <div class="quote-stars">
+                ★★★★★
+              </div>
+              <p class="quote-body">
+                "The Byzantine consensus layer is a game changer for financial trading swarms. For the first time, we have mathematically proven zero-hallucination execution across multi-hop DEX liquidity pools with microsecond precision."
+              </p>
+              <div class="author-row">
+                <div class="author-info">
+                  <div class="author-avatar">MT</div>
+                  <div>
+                    <div class="author-name">Marcus Thorne</div>
+                    <div class="author-title">Chief Quantitative Strategist, Quantix Labs</div>
+                  </div>
+                </div>
+                <div class="status-pill">
+                  <span class="live-beacon"></span>
+                  <span>Verified High-Frequency Customer</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="testimonial-slide">
+              <div class="quote-stars">
+                ★★★★★
+              </div>
+              <p class="quote-body">
+                "Deploying an agent swarm with Kinesis feels like moving from dial-up modems straight to optical fiber. The TypeScript SDK is phenomenal, and the local sandbox simulator made integration completely seamless."
+              </p>
+              <div class="author-row">
+                <div class="author-info">
+                  <div class="author-avatar">SK</div>
+                  <div>
+                    <div class="author-name">Sarah Jenkins</div>
+                    <div class="author-title">Principal AI Platform Architect, Veloce AI</div>
+                  </div>
+                </div>
+                <div class="status-pill">
+                  <span class="live-beacon"></span>
+                  <span>Verified Core Developer</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Carousel Controls -->
+          <div class="carousel-nav-btns">
+            <button class="carousel-btn" id="prev-testimonial-btn" aria-label="Previous Testimonial">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <button class="carousel-btn" id="next-testimonial-btn" aria-label="Next Testimonial">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SECTION: PRICING
+         =================================================================== -->
+    <section class="section-wrapper" id="pricing">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <div class="section-badge">
+            <span class="badge-dot"></span>
+            <span>Transparent Pricing</span>
+          </div>
+          <h2 class="section-title">
+            Simple, Predictable Economics. <br>
+            <span class="gradient-text">Zero Surprise Overage Fees.</span>
+          </h2>
+          <p class="section-desc">
+            Scale seamlessly from local development sandboxes to global sovereign multi-cloud deployments.
+          </p>
+        </div>
+
+        <!-- Billing Toggle -->
+        <div class="pricing-toggle-wrap reveal-on-scroll">
+          <span class="pricing-billing-label active" id="label-monthly">Monthly Billing</span>
+          <div class="switch-toggle" id="pricing-toggle" role="switch" aria-checked="false" aria-label="Toggle Annual Billing">
+            <div class="switch-circle"></div>
+          </div>
+          <span class="pricing-billing-label" id="label-annual">Annual Billing</span>
+          <span class="save-discount-badge">Save 25% + 2 Mo Free</span>
+        </div>
+
+        <!-- Pricing Cards -->
+        <div class="pricing-grid">
+          <!-- Tier 1 -->
+          <div class="pricing-card reveal-on-scroll">
+            <div>
+              <h3 class="plan-name">Developer Core</h3>
+              <p class="plan-desc">Perfect for testing, academic research, and prototyping local agent swarms.</p>
+              <div class="plan-price-wrap">
+                <span class="plan-price">$0</span>
+                <span class="plan-period">/ forever free</span>
+              </div>
+              <div class="plan-features-list">
+                <div class="plan-feature-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Up to 5 concurrent actor swarms</span>
+                </div>
+                <div class="plan-feature-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>1,000,000 monthly vector queries</span>
+                </div>
+                <div class="plan-feature-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Standard community discord support</span>
+                </div>
+                <div class="plan-feature-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>TypeScript & Python core SDKs</span>
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-secondary open-modal-btn" style="width:100%;">Get Started Free</button>
+          </div>
+
+          <!-- Tier 2 (Popular) -->
+          <div class="pricing-card popular reveal-on-scroll" style="animation-delay: 0.1s;">
+            <div class="popular-banner">Most Popular</div>
+            <div>
+              <h3 class="plan-name">Team & Swarms</h3>
+              <p class="plan-desc">For production startups and high-velocity engineering teams deploying live workloads.</p>
+              <div class="plan-price-wrap">
+                <span class="plan-price" id="price-pro">$99</span>
+                <span class="plan-period" id="period-pro">/ month (billed monthly)</span>
+              </div>
+              <div class="plan-features-list">
+                <div class="plan-feature-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Unlimited concurrent agent swarms</span>
+                </div>
+                <div class="plan-feature-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Global edge routing across 160 PoPs</span>
+                </div>
+                <div class="plan-feature-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Hardware TEE encrypted memory enclaves</span>
+                </div>
+                <div class="plan-feature-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>24/7 dedicated engineering Slack & SLA</span>
+                </div>
+                <div class="plan-feature-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Sub-12ms guaranteed median dispatch</span>
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-primary open-modal-btn" style="width:100%;">Start 14-Day Free Trial</button>
+          </div>
+
+          <!-- Tier 3 -->
+          <div class="pricing-card reveal-on-scroll" style="animation-delay: 0.2s;">
+            <div>
+              <h3 class="plan-name">Enterprise Fabric</h3>
+              <p class="plan-desc">Custom on-premise, sovereign cloud, and dedicated edge hardware clusters.</p>
+              <div class="plan-price-wrap">
+                <span class="plan-price">Custom</span>
+                <span class="plan-period">/ tailor-fit</span>
+              </div>
+              <div class="plan-features-list">
+                <div class="plan-feature-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Dedicated isolated edge PoP infrastructure</span>
+                </div>
+                <div class="plan-feature-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Air-gapped on-premise Kubernetes deployment</span>
+                </div>
+                <div class="plan-feature-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>99.999% cryptographic uptime guarantee</span>
+                </div>
+                <div class="plan-feature-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>SOC2 Type II, HIPAA, ISO27001 certs</span>
+                </div>
+                <div class="plan-feature-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Named Solutions Architect & 15m SLA</span>
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-secondary open-modal-btn" style="width:100%;">Contact Enterprise Sales</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SECTION: FAQ ACCORDION
+         =================================================================== -->
+    <section class="section-wrapper" id="faq">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <div class="section-badge">
+            <span class="badge-dot"></span>
+            <span>Knowledge Base</span>
+          </div>
+          <h2 class="section-title">
+            Frequently Answered <br>
+            <span class="gradient-text">Architectural Questions</span>
+          </h2>
+          <p class="section-desc">
+            Everything you need to know about latency benchmarks, security guarantees, and deployment targets.
+          </p>
+        </div>
+
+        <!-- Live FAQ Search Filter -->
+        <div class="faq-search-wrap reveal-on-scroll">
+          <svg class="faq-search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" class="faq-search-input" id="faq-search-input" placeholder="Type to filter technical questions (e.g. latency, security, hardware)..." aria-label="Search FAQ">
+        </div>
+
+        <div class="faq-list">
+          <!-- Item 1 -->
+          <div class="faq-item open reveal-on-scroll">
+            <button class="faq-question-btn" aria-expanded="true">
+              <span>How does Kinesis achieve sub-12ms multi-agent orchestration?</span>
+              <div class="faq-icon-cross">+</div>
+            </button>
+            <div class="faq-answer">
+              Kinesis bypasses traditional synchronous HTTP/REST abstractions. Each actor is compiled to a lightweight WebAssembly microVM running adjacent to high-speed NVMe vector storage. Communication occurs over custom QUIC UDP datagrams across our 160 edge PoP network with pre-warmed actor thread pools.
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="faq-item reveal-on-scroll">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span>What is Byzantine Agent Consensus and how does it prevent hallucinations?</span>
+              <div class="faq-icon-cross">+</div>
+            </button>
+            <div class="faq-answer">
+              In traditional LLM chains, a single hallucinated token derails the entire pipeline. Kinesis deploys an asynchronous consensus protocol where specialized critic actors verify syntax, semantic constraints, and factual grounding against episodic vector graphs. An action is only committed when a verifiable mathematical threshold is achieved.
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="faq-item reveal-on-scroll">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span>Can we deploy Kinesis on-premise or within air-gapped sovereign clouds?</span>
+              <div class="faq-icon-cross">+</div>
+            </button>
+            <div class="faq-answer">
+              Yes. The Enterprise Neural Fabric edition can be deployed directly to your private Kubernetes cluster, AWS GovCloud, or air-gapped datacenter using our verified Helm charts. All encryption keys remain exclusively in your hardware security modules (HSM).
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="faq-item reveal-on-scroll">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span>How does episodic vector memory avoid catastrophic forgetting?</span>
+              <div class="faq-icon-cross">+</div>
+            </button>
+            <div class="faq-answer">
+              Instead of stuffing billions of raw tokens into a single prompt context window, Kinesis uses hierarchical HNSW vector indexing coupled with a persistent temporal knowledge graph. As the conversation evolves, the engine performs continuous semantic compression and associative retrieval in under 2ms.
+            </div>
+          </div>
+
+          <!-- Item 5 -->
+          <div class="faq-item reveal-on-scroll">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span>What SDKs and languages are officially supported?</span>
+              <div class="faq-icon-cross">+</div>
+            </button>
+            <div class="faq-answer">
+              We provide first-class, strictly typed SDKs for TypeScript / Node.js, Python (asyncio), Rust, and Go. In addition, we expose an ultra-fast gRPC and WebSocket streaming gateway for any language runtime.
+            </div>
+          </div>
+
+          <!-- Item 6 -->
+          <div class="faq-item reveal-on-scroll">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span>Is my training or customer data ever used to train public models?</span>
+              <div class="faq-icon-cross">+</div>
+            </button>
+            <div class="faq-answer">
+              Never. Kinesis has a strict zero-retention, zero-training policy. Data processed inside our hardware SGX/TEE enclaves is cryptographically blinded. You own 100% of your weights, embeddings, telemetry, and output artifacts.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SECTION: FINAL CALL TO ACTION
+         =================================================================== -->
+    <section class="section-wrapper" id="cta">
+      <div class="container">
+        <div class="cta-banner-card reveal-on-scroll">
+          <div class="section-badge" style="background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.15); color:#ffffff;">
+            <span class="badge-dot" style="background:#ffffff; box-shadow: 0 0 10px #ffffff;"></span>
+            <span>Zero Lock-in • Instant Sandbox Access</span>
+          </div>
+
+          <h2 class="cta-banner-title">
+            Ready to Architect <br>
+            <span class="text-shimmer">The Autonomous Future?</span>
+          </h2>
+
+          <p class="cta-banner-desc">
+            Deploy your first decentralized agent swarm in less than three minutes. 
+            Experience deterministic sub-12ms latency on our global edge network.
+          </p>
+
+          <form class="cta-form" id="banner-cta-form">
+            <input type="email" class="cta-input" id="banner-email-input" placeholder="Enter your work email address..." required aria-label="Work Email Address">
+            <button type="submit" class="btn btn-primary btn-lg">
+              <span>Get Early Access Key</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </form>
+
+          <div class="cta-guarantee-row">
+            <div class="guarantee-badge">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>SOC2 Type II Certified</span>
+            </div>
+            <div class="guarantee-badge">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>100% Data Sovereignty Guarantee</span>
+            </div>
+            <div class="guarantee-badge">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Instant npm / pip SDK Deploy</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================================================================
+       FOOTER
+       =================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <!-- Col 1: Brand Info -->
+        <div class="footer-brand-wrap">
+          <div class="brand-logo">
+            <div class="logo-symbol">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+            </div>
+            <span>KINESIS</span>
+          </div>
+          <p class="footer-desc">
+            The next-generation autonomous cognitive intelligence and spatial workflow engine. 
+            Architected for low-latency, deterministic multi-agent swarms.
+          </p>
+          <div class="status-pill" style="align-self: flex-start;">
+            <span class="live-beacon"></span>
+            <span>All 160 PoPs 100% Operational</span>
+          </div>
+        </div>
+
+        <!-- Col 2: Product -->
+        <div>
+          <div class="footer-col-title">Product</div>
+          <div class="footer-col-links">
+            <a href="#simulator" class="footer-link">Live Studio Sandbox</a>
+            <a href="#features" class="footer-link">Neural Mesh Engine</a>
+            <a href="#calculator" class="footer-link">ROI Benchmarks</a>
+            <a href="#pricing" class="footer-link">Pricing Plans</a>
+            <a href="#showcase" class="footer-link">Customer Deployments</a>
+            <a href="#hero" class="footer-link">Release Notes (v3.4)</a>
+          </div>
+        </div>
+
+        <!-- Col 3: Architecture -->
+        <div>
+          <div class="footer-col-title">Architecture</div>
+          <div class="footer-col-links">
+            <a href="#paradigm" class="footer-link">Byzantine Consensus</a>
+            <a href="#features" class="footer-link">Episodic Vector Graph</a>
+            <a href="#features" class="footer-link">TEE Enclaves</a>
+            <a href="#features" class="footer-link">Multimodal Tensor Fusion</a>
+            <a href="#features" class="footer-link">Autonomous Self-Healing</a>
+            <a href="#features" class="footer-link">QUIC Tensor Mesh</a>
+          </div>
+        </div>
+
+        <!-- Col 4: Resources -->
+        <div>
+          <div class="footer-col-title">Developers</div>
+          <div class="footer-col-links">
+            <a href="#" class="footer-link open-modal-btn">TypeScript SDK</a>
+            <a href="#" class="footer-link open-modal-btn">Python Async SDK</a>
+            <a href="#" class="footer-link open-modal-btn">Rust Crates</a>
+            <a href="#" class="footer-link open-modal-btn">CLI Documentation</a>
+            <a href="#" class="footer-link open-modal-btn">GitHub Repository</a>
+            <a href="#" class="footer-link open-modal-btn">API References</a>
+          </div>
+        </div>
+
+        <!-- Col 5: Company & Legal -->
+        <div>
+          <div class="footer-col-title">Company</div>
+          <div class="footer-col-links">
+            <a href="#" class="footer-link open-modal-btn">About Kinesis Labs</a>
+            <a href="#" class="footer-link open-modal-btn">Security & SOC2</a>
+            <a href="#" class="footer-link open-modal-btn">Privacy Policy</a>
+            <a href="#" class="footer-link open-modal-btn">Terms of Service</a>
+            <a href="#" class="footer-link open-modal-btn">System Telemetry</a>
+            <a href="#" class="footer-link open-modal-btn">Contact Founders</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <div>
+          © 2026 Kinesis Technologies Inc. All rights reserved. Quantum-5 Core Protocol.
+        </div>
+
+        <!-- Social Icons -->
+        <div class="social-links">
+          <a href="#" class="social-icon-btn" aria-label="GitHub" title="GitHub">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          </a>
+          <a href="#" class="social-icon-btn" aria-label="X / Twitter" title="X / Twitter">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+          </a>
+          <a href="#" class="social-icon-btn" aria-label="Discord" title="Discord Community">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6h0a14.5 14.5 0 0 0-4-1.25A11.5 11.5 0 0 0 13 6a11.5 11.5 0 0 0-2 0 14.5 14.5 0 0 0-4 1.25H7A19.7 19.7 0 0 0 3 18c2 1.5 4.5 2 7 2 .5-.7 1-1.5 1.5-2.3a8.9 8.9 0 0 1-2.5-.8c.2-.2.4-.3.6-.5 4 1.9 8.4 1.9 12.4 0 .2.2.4.3.6.5-.8.5-1.7.8-2.5.8.5.8 1 1.6 1.5 2.3 2.5 0 5-.5 7-2a19.7 19.7 0 0 0-4-12z"></path><circle cx="8.5" cy="12.5" r="1.5"></circle><circle cx="15.5" cy="12.5" r="1.5"></circle></svg>
+          </a>
+          <a href="#" class="social-icon-btn" aria-label="LinkedIn" title="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================================================================
+       MODAL: REQUEST EARLY ACCESS & KEY GENERATION
+       =================================================================== -->
+  <div class="modal-backdrop" id="access-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="modal-close-btn" aria-label="Close Modal">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="modal-header">
+        <div class="section-badge" style="margin-bottom:12px;">
+          <span class="badge-dot"></span>
+          <span>Instant Private Preview</span>
+        </div>
+        <h3 class="modal-title" id="modal-title">Request Early Access Key</h3>
+        <p class="modal-desc">
+          Get provisioned onto our dedicated Quantum-5 testnet cluster with $2,500 in free compute credits.
+        </p>
+      </div>
+
+      <form id="early-access-form">
+        <div class="form-group">
+          <label class="form-label" for="modal-name-input">Full Name</label>
+          <input type="text" class="form-input" id="modal-name-input" placeholder="e.g. Alex Vance" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="modal-email-input">Work Email</label>
+          <input type="email" class="form-input" id="modal-email-input" placeholder="alex@company.com" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="modal-company-input">Organization / Project</label>
+          <input type="text" class="form-input" id="modal-company-input" placeholder="e.g. Hyperion Robotics Labs">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="modal-usecase-select">Primary Use Case</label>
+          <select class="form-select" id="modal-usecase-select">
+            <option value="robotics">Autonomous Robotics / Embodied AI</option>
+            <option value="finance">High-Frequency Trading & Arbitrage</option>
+            <option value="agents">Multi-Agent Cognitive Swarms</option>
+            <option value="devtools">Developer APIs / Vector Pipelines</option>
+            <option value="other">Other High-Velocity Workloads</option>
+          </select>
+        </div>
+
+        <div class="form-checkbox-row">
+          <input type="checkbox" id="modal-nda-check" checked style="accent-color: var(--accent-indigo); width:16px; height:16px;">
+          <label for="modal-nda-check">Include pre-configured TypeScript & Python SDK starter kit</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg" style="width:100%;">
+          <span>Request Early Access Key</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       MODAL: COMMAND PALETTE (CTRL + K)
+       =================================================================== -->
+  <div class="modal-backdrop" id="command-palette" role="dialog" aria-modal="true" aria-labelledby="cmd-label">
+    <div class="modal-card command-card">
+      <div class="command-search-bar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="command-input" placeholder="Type a command or jump to section..." aria-label="Command search">
+        <span class="command-kbd">ESC</span>
+      </div>
+
+      <div class="command-results-list" id="command-results">
+        <div class="command-item" data-action="simulator">
+          <div class="command-item-left">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            <span>Jump to Live Studio Sandbox</span>
+          </div>
+          <span class="command-kbd">Studio</span>
+        </div>
+
+        <div class="command-item" data-action="calculator">
+          <div class="command-item-left">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line></svg>
+            <span>Open ROI & Benchmark Calculator</span>
+          </div>
+          <span class="command-kbd">Calculator</span>
+        </div>
+
+        <div class="command-item" data-action="access">
+          <div class="command-item-left">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg>
+            <span>Request Early Access Key</span>
+          </div>
+          <span class="command-kbd">Access</span>
+        </div>
+
+        <div class="command-item" data-action="sound">
+          <div class="command-item-left">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon></svg>
+            <span>Toggle Ambient Futuristic Sound FX</span>
+          </div>
+          <span class="command-kbd">Audio</span>
+        </div>
+
+        <div class="command-item" data-action="pricing">
+          <div class="command-item-left">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            <span>View Transparent Pricing Tiers</span>
+          </div>
+          <span class="command-kbd">Pricing</span>
+        </div>
+
+        <div class="command-item" data-action="faq">
+          <div class="command-item-left">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+            <span>Search Architectural FAQ</span>
+          </div>
+          <span class="command-kbd">FAQ</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <!-- Core Script -->
+  <script src="script.js"></script>
+</body>
+</html>
